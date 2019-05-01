@@ -6,20 +6,23 @@ var db = require('../db').db;
 
 router.post('/', (req, res) => {
     var userId = req.user.id;
-    var conversationId = req.body.conversationId;
-    var replyData = {
+    var month = req.body.month;
+    var day = req.body.day;
+    var eventData = {
+        header: req.body.header,
         message: req.body.message,
-        conversationId: conversationId,
+        month: month,
+        day: day,
         userId: userId,
-        name: req.body.name,
+        
         
     }
-    db.Message
-    .create(replyData)
+    db.Event
+    .create(eventData)
     .then(
-        function createSuccess(replyData) {
+        function createSuccess(eventData) {
             res.json({
-                replyData: replyData
+                eventData: eventData
             });
         },
         function createError(err) {
@@ -28,13 +31,13 @@ router.post('/', (req, res) => {
     );
 });
 
-router.get('/:id', (req, res)=> {
-    var data = req.params.id;
-    var userid = req.user.id;
+router.get('/:month/:day', (req, res)=> {
+    var month = req.params.month;
+    var day = req.params.day;
 
-    db.Message
-    .findOne({
-        where: { id: data, userId: userid }
+    db.Event
+    .findAll({
+        where: { month: month, day: day}
     }).then(
         function findOneSuccess(data) {
             res.json(data);
@@ -49,14 +52,14 @@ router.delete('/:id', (req, res) => {
     var data = req.params.id;
     var userid = req.user.id;
 
-    db.Message
+    db.Event
     .destroy({
         where: {id: data, userId: userid}
     }).then(
-        function deleteMonthSuccess(data){
+        function deleteEventSuccess(data){
             res.send("you deleted a reply");
         },
-        function deleteMonthError(err){
+        function deleteEventError(err){
             res.send(500, err.message);
         }
     );
@@ -64,7 +67,7 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
     if (!req.errors) {
-        db.Message.update(req.body, { where: { id: req.params.id }})
+        db.Event.update(req.body, { where: { id: req.params.id }})
         .then(replydata => res.status(200).json(replydata))
         .catch(err => res.json(req.errors))
     } else {

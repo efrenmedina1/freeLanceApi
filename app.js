@@ -20,6 +20,8 @@ var conversation = require('./controllers/conversation');
 var conversationlist = require('./controllers/conversationlistController');
 var message = require('./controllers/messageController');
 var messagelist = require('./controllers/messagelistController');
+var event = require('./controllers/eventController');
+var eventlist = require('./controllers/eventlistController');
 
 //EXPOSED ROUTES//
 app.use('/user', user);
@@ -28,6 +30,7 @@ app.use('/profilelist', profilelist);
 app.use('/conversationlist', conversationlist);
 app.use('/messagelist', messagelist);
 app.use('/monthlist', monthlist);
+app.use('/eventlist', eventlist);
 
 //PROTECTED ROUTES//
 app.use(require('./middleware/validate-session'));
@@ -35,6 +38,7 @@ app.use('/month', month);
 app.use('/profile', profile);
 app.use('/conversation', conversation);
 app.use('/message', message);
+app.use('/event', event);
 
 
 

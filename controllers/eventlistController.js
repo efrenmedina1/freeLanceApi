@@ -2,19 +2,13 @@ var router = require('express').Router();
 var sequelize = require('../db');
 var db = require('../db').db;
 
+router.get('/:month/:day', (req, res)=> {
+    var month = req.params.month;
+    var day = req.params.day;
 
-router.get('/', (req, res) => {
-    db.Month.findAll()
-    .then(months => res.status(200).json(months))
-    .catch(err => res.status(500).json(err))
-});
-
-router.get('/search/:id', (req, res)=> {
-    var data = req.params.id;
-
-    db.Month
+    db.Event
     .findAll({
-        where: { month: data }
+        where: { month: month, day: day}
     }).then(
         function findOneSuccess(data) {
             res.json(data);
@@ -23,6 +17,10 @@ router.get('/search/:id', (req, res)=> {
             res.send(500, err.message);
         }
     );
-}); 
+});
+
+
+
+
 
 module.exports = router;

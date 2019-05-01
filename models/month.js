@@ -109,6 +109,27 @@ module.exports = function (sequelize, DataTypes) {
         day35: {
             type: DataTypes.STRING,
         },
+        day36: {
+            type: DataTypes.STRING,
+        },
+        day37: {
+            type: DataTypes.STRING,
+        },
+        day38: {
+            type: DataTypes.STRING,
+        },
+        day39: {
+            type: DataTypes.STRING,
+        },
+        day40: {
+            type: DataTypes.STRING,
+        },
+        day41: {
+            type: DataTypes.STRING,
+        },
+        day42: {
+            type: DataTypes.STRING,
+        },
         day1Comment: {
             type: DataTypes.STRING,
         },
@@ -212,6 +233,27 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
         },
         day35Comment: {
+            type: DataTypes.STRING,
+        },
+        day36Comment: {
+            type: DataTypes.STRING,
+        },
+        day37Comment: {
+            type: DataTypes.STRING,
+        },
+        day38Comment: {
+            type: DataTypes.STRING,
+        },
+        day39Comment: {
+            type: DataTypes.STRING,
+        },
+        day40Comment: {
+            type: DataTypes.STRING,
+        },
+        day41Comment: {
+            type: DataTypes.STRING,
+        },
+        day42Comment: {
             type: DataTypes.STRING,
         },
 

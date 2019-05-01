@@ -44,6 +44,13 @@ router.post('/', (req, res) => {
         day33: req.body.day33,
         day34: req.body.day34,
         day35: req.body.day35,
+        day36: req.body.day36,
+        day37: req.body.day37,
+        day38: req.body.day38,
+        day39: req.body.day39,
+        day40: req.body.day40,
+        day41: req.body.day41,
+        day42: req.body.day42,
 
 
 

@@ -26,6 +26,7 @@ db.Month = require('./models/month')(sequelize, Sequelize);
 db.Profile = require('./models/profile')(sequelize, Sequelize);
 db.Conversation = require('./models/conversation')(sequelize, Sequelize);
 db.Message = require('./models/message')(sequelize, Sequelize);
+db.Event = require('./models/event')(sequelize, Sequelize);
 
 // db.Likes.belongsTo(db.Dogs, {onDelete: 'cascade' });
 // db.Dogs.hasMany(db.Likes, {onDelete: 'cascade' });
